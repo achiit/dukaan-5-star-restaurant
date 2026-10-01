@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>5 STAR RESTAURANT · Ekta Chowk</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#B8860B;--red:#8B0000;--warm:#F5C542;--ink:#242424;--bg:#FFFDF7;--card:#fff;--mut:#6b6558;--line:#eadfc4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f4efe2;--bg:#1b1812;--card:#26221a;--mut:#b5ab94;--line:#3a3426}}
+:root[data-theme="dark"]{--ink:#f4efe2;--bg:#1b1812;--card:#26221a;--mut:#b5ab94;--line:#3a3426}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;padding-bottom:84px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;transition:transform .12s}button:active{transform:scale(.96)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:8px}
+.logo{font-weight:800;color:var(--gold);letter-spacing:.02em}
+nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav button{background:none;padding:10px 12px;border-radius:99px;font-weight:600;color:var(--mut);white-space:nowrap;min-height:44px}
+nav button[aria-current=page]{background:var(--gold);color:#fff}
+.cartbtn{background:var(--red);color:#fff;border-radius:99px;padding:10px 16px;font-weight:600;min-height:44px}
+.cartbtn.bump{animation:b .35s}@keyframes b{50%{transform:scale(1.15)}}
+main{max-width:1000px;margin:auto;padding:16px}
+.page{display:none}.page.on{display:block;animation:f .3s}@keyframes f{from{opacity:0;transform:translateY(8px)}}
+.hero{border-radius:28px;padding:56px 24px;color:#fff;text-align:center;background:radial-gradient(circle at 20% 10%,var(--warm),transparent 45%),linear-gradient(135deg,var(--red),#3d0000 70%)}
+.hero h1{font-size:clamp(2.4rem,9vw,4.6rem);margin:0;font-weight:800;line-height:1}
+.hero .loc{margin-top:8px;font-weight:600;color:var(--warm);letter-spacing:.2em}
+.hero p{max-width:34ch;margin:16px auto 24px;font-size:1.1rem}
+.btn{display:inline-block;border-radius:16px;padding:14px 22px;font-weight:600;background:var(--gold);color:#fff;text-decoration:none;min-height:48px;margin:4px}
+.btn.alt{background:#fff;color:var(--red)}.btn.wa{background:#1a8f4a}.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+h2{font-size:1.6rem;margin:32px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.card{background:var(--card);border-radius:24px;box-shadow:0 6px 24px rgba(80,55,0,.1);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.card:hover,.card:active{transform:translateY(-3px);box-shadow:0 12px 30px rgba(80,55,0,.18)}
+.pic{height:130px;display:grid;place-items:center;font-size:3.4rem;background:linear-gradient(135deg,var(--warm),var(--gold))}
+.card .in{padding:14px}.card h3{margin:0;font-size:1.05rem}.card p{margin:4px 0 10px;color:var(--mut);font-size:.9rem}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.price{font-weight:800;color:var(--red)}
+.qty{display:inline-flex;align-items:center;gap:2px;background:var(--bg);border:1px solid var(--line);border-radius:99px}
+.qty button{width:40px;height:40px;background:none;font-size:1.2rem;font-weight:600;border-radius:99px}
+.qty span{min-width:22px;text-align:center;font-weight:600}
+.add{background:var(--gold);color:#fff;border-radius:12px;padding:10px 14px;font-weight:600;min-height:44px}
+input,select,textarea{width:100%;padding:13px;border-radius:14px;border:1px solid var(--line);background:var(--card);min-height:48px}
+label{display:block;font-weight:600;margin:12px 0 4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:10px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:600;min-height:44px}
+.chip[aria-pressed=true]{background:var(--red);color:#fff;border-color:var(--red)}
+.chip:disabled{opacity:.4;text-decoration:line-through}
+.panel{background:var(--card);border-radius:24px;padding:20px;box-shadow:0 6px 24px rgba(80,55,0,.1);max-width:560px}
+.cats{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:40;display:none}
+.overlay.on{display:block}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-height:88vh;overflow:auto;background:var(--bg);border-radius:28px 28px 0 0;padding:20px 20px calc(24px + env(safe-area-inset-bottom,0px));z-index:50;transform:translateY(105%);transition:transform .3s}
+.sheet.on{transform:none}
+@media(min-width:700px){.sheet{left:50%;right:auto;width:520px;margin-left:-260px}}
+.skel{height:200px;border-radius:24px;background:linear-gradient(90deg,var(--line),var(--card),var(--line));background-size:200% 100%;animation:s 1.2s infinite}@keyframes s{to{background-position:-200% 0}}
+.tile{aspect-ratio:1;border:0;border-radius:20px;display:grid;place-items:center;font-size:2.6rem;color:#fff;font-weight:600}
+.tile small{font-size:.8rem;display:block;text-align:center}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:60;display:none;place-items:center;color:#fff;text-align:center;touch-action:pan-y}
+.lb.on{display:grid}.lb .big{width:min(86vw,420px);aspect-ratio:1;border-radius:28px;display:grid;place-items:center;font-size:6rem}
+.stars{color:var(--gold);letter-spacing:2px}
+.wafab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;width:60px;height:60px;border-radius:50%;background:#1a8f4a;color:#fff;font-size:1.8rem;display:grid;place-items:center;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.3);animation:pu 2.5s 3}
+@keyframes pu{50%{transform:scale(1.08)}}
+.ok{font-size:4rem;animation:pop .5s}@keyframes pop{from{transform:scale(0)}}
+.kv{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style></head><body>
+<header><div class="bar"><div class="logo">5 STAR</div>
+<nav id="nav" aria-label="Main"></nav>
+<button class="cartbtn" id="cartbtn" aria-label="Open cart">🛒 <span id="cc">0</span></button></div></header>
+<main>
+<section class="page on" id="home">
+<div class="hero"><h1>5 STAR RESTAURANT</h1><div class="loc">EKTA CHOWK</div>
+<p>Delicious Food. Great Moments. Five-Star Taste.</p>
+<button class="btn alt" data-go="book">Book a Table</button><button class="btn" data-go="menu">Order Now</button></div>
+<h2>Today's specials</h2><div class="grid" id="pop"></div>
+<h2>Visit us</h2><div class="panel"><div class="kv"><span>Location</span><b>Ekta Chowk</b></div><div class="kv"><span>Phone</span><b>9801391354</b></div>
+<p><a class="btn wa" id="wa1" target="_blank" rel="noopener">Chat on WhatsApp</a></p></div></section>
+
+<section class="page" id="menu"><h2 style="margin-top:8px">Menu</h2>
+<input id="q" type="search" placeholder="Search food and drinks" aria-label="Search menu">
+<div class="cats" id="cats" role="group" aria-label="Categories"></div>
+<div class="grid" id="mgrid"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div></section>
+
+<section class="page" id="book"><h2 style="margin-top:8px">Book a table</h2>
+<form class="panel" id="bf" novalidate>
+<label for="bn">Name</label><input id="bn" required autocomplete="name">
+<label for="bm">Mobile number</label><input id="bm" type="tel" inputmode="numeric" required autocomplete="tel">
+<label for="bd">Date</label><input id="bd" type="date" required>
+<label>Time</label><div class="chips" id="slots" role="group" aria-label="Time slots"></div>
+<label for="bg">Number of people</label><select id="bg"></select>
+<label for="bt">Special notes</label><textarea id="bt" rows="2"></textarea>
+<p id="be" role="alert" style="color:var(--red);font-weight:600"></p>
+<button class="btn" type="submit" style="width:100%;border:0">Book now</button></form>
+<div class="panel" id="conf" hidden style="text-align:center"><div class="ok">✅</div><h2 style="margin:0">Booking sent</h2>
+<div id="cd" style="text-align:left;margin:12px 0"></div>
+<a class="btn wa" id="cwa" target="_blank" rel="noopener">Confirm on WhatsApp</a></div></section>
+
+<section class="page" id="gallery"><h2 style="margin-top:8px">Gallery</h2><div class="grid" id="gg" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr))"></div>
+<p style="color:var(--mut)">Photos coming soon. Replace the tiles in the GALLERY list with real images.</p></section>
+
+<section class="page" id="reviews"><h2 style="margin-top:8px">Reviews</h2><div class="grid" id="rv"></div>
+<h2>Write a review</h2><form class="panel" id="rf"><label for="rn">Your name</label><input id="rn" required>
+<label for="rs">Rating</label><select id="rs"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select>
+<label for="rt">Your review</label><textarea id="rt" rows="3" required></textarea>
+<p style="color:var(--mut);font-size:.85rem">Reviews are saved on this device. Photo upload is not included yet.</p>
+<button class="btn" style="border:0;width:100%">Post review</button></form></section>
+
+<section class="page" id="contact"><h2 style="margin-top:8px">Contact</h2><div class="panel"><h3 style="margin:0">5 STAR RESTAURANT</h3>
+<div class="kv"><span>Location</span><b>Ekta Chowk</b></div><div class="kv"><span>Phone / WhatsApp</span><b>9801391354</b></div>
+<p><a class="btn" href="tel:9801391354">Call now</a><a class="btn wa" id="wa2" target="_blank" rel="noopener">Chat on WhatsApp</a>
+<a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=5+STAR+RESTAURANT+Ekta+Chowk">Get directions</a></p></div></section>
+</main>
+
+<a class="wafab" id="fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<div class="overlay" id="ov"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Details"></div>
+<div class="lb" id="lb" role="dialog" aria-label="Photo"><div><div class="big" id="lbi"></div><p id="lbt"></p><button class="btn ghost" id="lbx">Close</button></div></div>
+
+<script>
+// ===== OWNER EDITS HERE =====
+const PHONE="919801391354", NAME="5 STAR RESTAURANT";
+const MENU=[
+{id:1,cat:"Beverages",name:"Coffee",e:"☕",d:"Fresh hot coffee, rich and smooth.",p:60,ing:"Coffee, milk, sugar",t:"5 min",v:["Regular","Large +20"],pop:1},
+{id:2,cat:"Beverages",name:"Tea",e:"🍵",d:"Classic tea, brewed fresh.",p:30,ing:"Tea leaves, milk, sugar",t:"5 min",v:["Regular","Large +10"]},
+{id:3,cat:"Beverages",name:"Chai",e:"🫖",d:"Masala chai with ginger and cardamom.",p:25,ing:"Tea, milk, ginger, cardamom",t:"5 min",v:["Cutting","Full +10"],pop:1},
+{id:4,cat:"Fast Food",name:"Burger",e:"🍔",d:"Crispy patty, fresh veggies, house sauce.",p:90,ing:"Bun, veg patty, lettuce, cheese, sauce",t:"12 min",v:["Veg","Cheese +20"],pop:1},
+{id:5,cat:"Fast Food",name:"Momos",e:"🥟",d:"Steamed momos with spicy chutney.",p:80,ing:"Veg filling, wrapper, red chutney",t:"15 min",v:["Steamed","Fried +20"],pop:1},
+{id:6,cat:"Fast Food",name:"Chumin / Chowmein",e:"🍜",d:"Wok-tossed noodles with vegetables.",p:70,ing:"Noodles, cabbage, carrot, sauces",t:"12 min",v:["Half","Full +40"],pop:1},
+{id:7,cat:"Fast Food",name:"Paneer Bread",e:"🥪",d:"Grilled bread stuffed with spiced paneer.",p:70,ing:"Bread, paneer, onion, spices",t:"10 min",v:["Plain","Cheese +20"],pop:1}];
+const SLOTS=["11:00 AM","12:00 PM","1:00 PM","2:00 PM","6:00 PM","7:00 PM","8:00 PM","9:00 PM"];
+const GALLERY=[["Interior","🏮"],["Exterior","🏪"],["Coffee","☕"],["Tea","🍵"],["Chai","🫖"],["Burger","🍔"],["Momos","🥟"],["Chowmein","🍜"],["Paneer Bread","🥪"],["Atmosphere","✨"]];
+const SEED=[{n:"Rohit S.",s:5,t:"Best momos near Ekta Chowk. Quick service."},{n:"Anita K.",s:5,t:"Lovely chai and a warm place to sit."}];
+// ===== APP =====
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const wa=m=>`https://wa.me/${PHONE}?text=${encodeURIComponent(m)}`;
+const hello=wa(`Hello ${NAME}, I have a question.`);
+["#wa1","#wa2","#fab"].forEach(s=>$(s).href=hello);
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let cart=store.get("cart",[]),cat="All",page="home";
+const PAGES=["home","menu","book","gallery","reviews","contact"];
+$("#nav").innerHTML=PAGES.map(p=>`<button data-go="${p}">${p[0].toUpperCase()+p.slice(1)}</button>`).join("")+`<button onclick="window.open('${hello}')">WhatsApp</button>`;
+function go(p){page=p;$$(".page").forEach(e=>e.classList.toggle("on",e.id===p));$$("nav button[data-go]").forEach(b=>b.toggleAttribute("aria-current",b.dataset.go===p)&&b.setAttribute("aria-current","page"));$$("nav button[data-go]").forEach(b=>{if(b.dataset.go!==p)b.removeAttribute("aria-current")});scrollTo(0,0)}
+document.addEventListener("click",e=>{const g=e.target.closest("[data-go]");if(g)go(g.dataset.go)});
+const card=i=>`<article class="card"><div class="pic" role="img" aria-label="${i.name}">${i.e}</div><div class="in"><h3>${i.name}</h3><p>${i.d}</p><div class="row"><span class="price">₹${i.p}</span><button class="add" data-open="${i.id}">Add</button></div></div></article>`;
+$("#pop").innerHTML=MENU.filter(i=>i.pop).map(card).join("");
+function renderMenu(){const q=$("#q").value.toLowerCase();const c=["All",...new Set(MENU.map(i=>i.cat))];
+$("#cats").innerHTML=c.map(x=>`<button class="chip" aria-pressed="${x===cat}" data-cat="${x}">${x}</button>`).join("");
+const L=MENU.filter(i=>(cat==="All"||i.cat===cat)&&(i.name+i.d).toLowerCase().includes(q));
+$("#mgrid").innerHTML=L.map(card).join("")||"<p>No items match. Try another search.</p>"}
+setTimeout(renderMenu,350);$("#q").oninput=renderMenu;
+document.addEventListener("click",e=>{const c=e.target.closest("[data-cat]");if(c){cat=c.dataset.cat;renderMenu()}const o=e.target.closest("[data-open]");if(o)openItem(+o.dataset.open)});
+function sheet(h){$("#sheet").innerHTML=h;$("#sheet").classList.add("on");$("#ov").classList.add("on")}
+function closeSheet(){$("#sheet").classList.remove("on");$("#ov").classList.remove("on")}
+$("#ov").onclick=closeSheet;document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeSheet();$("#lb").classList.remove("on")}});
+function openItem(id){const i=MENU.find(x=>x.id===id);let n=1;
+sheet(`<div class="pic" style="border-radius:20px;height:180px;font-size:5rem">${i.e}</div><h2 style="margin:14px 0 4px">${i.name}</h2><p style="margin:0;color:var(--mut)">${i.d}</p>
+<p><b>Ingredients:</b> ${i.ing}<br><b>Preparation:</b> about ${i.t}</p>
+<label for="vr">Variant</label><select id="vr">${i.v.map(v=>`<option>${v}</option>`).join("")}</select>
+<div class="row" style="margin-top:16px"><div class="qty"><button id="m" aria-label="Less">−</button><span id="n">1</span><button id="pl" aria-label="More">+</button></div><span class="price" id="pr">₹${i.p}</span></div>
+<button class="btn" id="ad" style="width:100%;border:0;margin:16px 0 0">Add to order</button>`);
+const ex=()=>{const m=$("#vr").value.match(/\+(\d+)/);return i.p+(m?+m[1]:0)};
+const up=()=>{$("#n").textContent=n;$("#pr").textContent="₹"+ex()*n};
+$("#m").onclick=()=>{n=Math.max(1,n-1);up()};$("#pl").onclick=()=>{n++;up()};$("#vr").onchange=up;
+$("#ad").onclick=()=>{const v=$("#vr").value.replace(/ \+\d+/,""),k=i.id+v,f=cart.find(c=>c.k===k);f?f.q+=n:cart.push({k,name:i.name+" ("+v+")",p:ex(),q:n});saveCart();closeSheet()}}
+function saveCart(){store.set("cart",cart);$("#cc").textContent=cart.reduce((a,c)=>a+c.q,0);const b=$("#cartbtn");b.classList.remove("bump");void b.offsetWidth;b.classList.add("bump")}
+$("#cc").textContent=cart.reduce((a,c)=>a+c.q,0);
+function openCart(){const t=cart.reduce((a,c)=>a+c.p*c.q,0);
+sheet(`<h2 style="margin-top:0">Your order</h2>`+(cart.length?cart.map((c,x)=>`<div class="row kv"><span>${c.name}</span><span class="qty"><button data-d="${x}" aria-label="Less">−</button><span>${c.q}</span><button data-u="${x}" aria-label="More">+</button></span><b>₹${c.p*c.q}</b></div>`).join("")+`<div class="row" style="margin:12px 0"><b>Total</b><b class="price">₹${t}</b></div>
+<label for="on">Name</label><input id="on" value="${store.get('nm','')}"><label for="om">Mobile number</label><input id="om" type="tel" value="${store.get('mb','')}">
+<label for="op">Order type</label><select id="op"><option>Pickup</option><option>Dine in</option></select><label for="ot">Notes</label><textarea id="ot" rows="2"></textarea>
+<p id="oe" role="alert" style="color:var(--red);font-weight:600"></p><button class="btn wa" id="os" style="width:100%;border:0">Order on WhatsApp</button>`:"<p>Your cart is empty. Add something from the menu.</p>"));
+const s=$("#os");if(s)s.onclick=()=>{const n=$("#on").value.trim(),m=$("#om").value.trim();if(!n||m.replace(/\D/g,"").length<10){$("#oe").textContent="Enter your name and a 10-digit mobile number.";return}
+store.set("nm",n);store.set("mb",m);
+open(wa(`Hello ${NAME}, I want to place an order.\n\nName: ${n}\nMobile: ${m}\nType: ${$("#op").value}\n\nOrder:\n${cart.map(c=>`${c.name} × ${c.q} = ₹${c.p*c.q}`).join("\n")}\n\nTotal: ₹${t}\n\nNotes: ${$("#ot").value||"-"}\n\nPlease confirm my order.`),"_blank")}}
+$("#cartbtn").onclick=openCart;
+document.addEventListener("click",e=>{const d=e.target.closest("[data-d]"),u=e.target.closest("[data-u]");if(!d&&!u)return;const x=+(d||u).dataset[d?"d":"u"];cart[x].q+=d?-1:1;if(cart[x].q<1)cart.splice(x,1);saveCart();openCart()});
+// booking
+let slot="";const bd=$("#bd"),today=new Date().toISOString().slice(0,10);bd.min=today;bd.value=today;
+$("#bg").innerHTML=[...Array(12)].map((_,i)=>`<option>${i+1}</option>`).join("");
+function renderSlots(){const now=new Date(),isT=bd.value===today;$("#slots").innerHTML=SLOTS.map(s=>{let dis=false;if(isT){const[h,r]=s.split(":"),pm=s.includes("PM");let H=+h%12+(pm?12:0);dis=H<=now.getHours()}return`<button type="button" class="chip" data-slot="${s}" aria-pressed="${s===slot}" ${dis?"disabled":""}>${s}</button>`}).join("")}
+renderSlots();bd.onchange=()=>{slot="";renderSlots()};
+document.addEventListener("click",e=>{const s=e.target.closest("[data-slot]");if(s){slot=s.dataset.slot;renderSlots()}});
+$("#bf").onsubmit=e=>{e.preventDefault();const n=$("#bn").value.trim(),m=$("#bm").value.trim(),er=$("#be");
+if(!n||m.replace(/\D/g,"").length<10||!bd.value||!slot){er.textContent="Fill in your name, a 10-digit mobile number, a date and a time slot.";return}er.textContent="";
+const id="5S-"+Math.random().toString(36).slice(2,7).toUpperCase(),g=$("#bg").value,nt=$("#bt").value||"-";
+const msg=`Hello ${NAME}, I would like to book a table.\n\nName: ${n}\nMobile: ${m}\nDate: ${bd.value}\nTime: ${slot}\nGuests: ${g}\nNotes: ${nt}\nBooking ID: ${id}\n\nPlease confirm my booking.`;
+const b=store.get("bookings",[]);b.push({id,n,d:bd.value,s:slot,g});store.set("bookings",b);
+$("#cd").innerHTML=[["Name",n],["Booking ID",id],["Date",bd.value],["Time",slot],["People",g],["Restaurant",NAME],["Location","Ekta Chowk"]].map(r=>`<div class="kv"><span>${r[0]}</span><b>${r[1]}</b></div>`).join("");
+$("#cwa").href=wa(msg);$("#bf").hidden=true;$("#conf").hidden=false;open(wa(msg),"_blank")};
+// gallery
+const COL=["#B8860B","#8B0000","#7a5a0a","#a33","#6b4a00","#8B0000","#B8860B","#5c3a00","#a8760a","#6d0000"];let gi=0;
+$("#gg").innerHTML=GALLERY.map((g,i)=>`<button class="tile" style="background:${COL[i]}" data-g="${i}" aria-label="View ${g[0]}"><span>${g[1]}<small>${g[0]}</small></span></button>`).join("");
+function showG(i){gi=(i+GALLERY.length)%GALLERY.length;$("#lbi").textContent=GALLERY[gi][1];$("#lbi").style.background=COL[gi];$("#lbt").textContent=GALLERY[gi][0];$("#lb").classList.add("on")}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-g]");if(t)showG(+t.dataset.g)});$("#lbx").onclick=()=>$("#lb").classList.remove("on");
+let x0=0;$("#lb").addEventListener("touchstart",e=>x0=e.touches[0].clientX);$("#lb").addEventListener("touchend",e=>{const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)showG(gi+(d<0?1:-1))});
+addEventListener("keydown",e=>{if($("#lb").classList.contains("on")){if(e.key==="ArrowRight")showG(gi+1);if(e.key==="ArrowLeft")showG(gi-1)}});
+// reviews
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function renderR(){$("#rv").innerHTML=[...store.get("reviews",[]),...SEED].map(r=>`<article class="card"><div class="in"><div class="stars" aria-label="${r.s} out of 5">${"★".repeat(r.s)}${"☆".repeat(5-r.s)}</div><p style="color:var(--ink)">${esc(r.t)}</p><b>${esc(r.n)}</b></div></article>`).join("")}
+renderR();$("#rf").onsubmit=e=>{e.preventDefault();const r=store.get("reviews",[]);r.unshift({n:$("#rn").value.trim(),s:+$("#rs").value,t:$("#rt").value.trim()});store.set("reviews",r);e.target.reset();renderR()};
+go("home");
+</script></body></html>
